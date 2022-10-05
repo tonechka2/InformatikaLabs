@@ -1,18 +1,14 @@
 :root {
-  --color-1: #e9b7ec;
+  --color-1: #cfe796;
   --color-2: #dc58e51f;
-  --color-3: #bd94bd;
-  --color-4: rgb(171, 138, 202);
+  --color-3: #cfdab8;
+  --color-4: #a7c59b;
   --color-5: #f4fde6;
 }
-* {
+* { /*css reset*/
   padding: 0;
-  zoom: 0.8;
 }
 @media (min-width: 120px) {
-  * {
-    zoom: 1;
-  }
   body { 
     display: grid;
     grid-template-areas: 
@@ -100,10 +96,9 @@
       "nav header"
       "nav main"
       "nav footer";
-    grid-template-rows: 175px auto 50px;
-    grid-template-columns: 15vw auto;
+    grid-template-rows: 120px auto 50px;
+    grid-template-columns: 120px auto;
     grid-gap: 10px;
-    /* margin: 0 10px 0 10px; */
   }
   #pageHeader, #mainNav, #pageFooter {
     background-color: var(--color-3);
@@ -133,6 +128,7 @@
   .chapters{
     display: flex;
     list-style-type: none;
+    justify-content: center;
   }
   .chapters li {
     margin-right: 2%;
@@ -143,7 +139,7 @@
   .chapters li a{
     text-decoration: none;
   }
-  .chapters li:hover{
+  .chapters li:hover {
     background: var(--color-4);
   }
   main {
@@ -152,8 +148,8 @@
     grid-gap: 10px;  
   }
   .wide {
-    grid-column-start: 3;
-    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
 
   }
   main section {
@@ -168,7 +164,6 @@
   }
   footer ul {
     display: flex;
-    justify-content: flex-end;
     list-style-type: none;
   }
   footer ul * {
