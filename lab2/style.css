@@ -1,24 +1,27 @@
 :root {
   --color-1: #e9b7ec;
   --color-2: #dc58e51f;
-  --color-3: #e7e5e7;
-  --color-4: #000000;
+  --color-3: #bd94bd;
+  --color-4: rgb(171, 138, 202);
   --color-5: #f4fde6;
+}
+* {
+  padding: 0;
 }
 @media (min-width: 0px) {
   body { 
     display: grid;
     grid-template-areas: 
+      "nav"
       "header"
       "main"
-      "nav"
       "footer";
     grid-gap: 10px;
     height: 100vh;
     margin: 0 10px 0 10px;
   }
   #pageHeader, #mainNav, #pageFooter {
-    background-color: lightgrey;
+    background-color: var(--color-3);
   }
   #pageHeader {
     grid-area: header;
@@ -31,14 +34,26 @@
   }
   #mainNav { 
     grid-area: nav; 
+    margin-top: 10px;
   }
-  .chapters{
+  .side {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  .side li {
+    margin: 0 2% 0 2%;
+  }
+  .side li a {
+    text-decoration: none;
+  }
+  .chapters {
     padding-left: 10px;
     list-style-type: none;
   }
   .chapters li {
     margin-right: 2%;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid var(--color-4);
     border-radius: 5px;
     padding: 10px 30px;
   }
@@ -46,7 +61,7 @@
     text-decoration: none;
   }
   .chapters li:hover{
-    background: blueviolet;
+    background: var(--color-4);
   }
   main {
     display: grid;
@@ -54,22 +69,27 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 10px;  
   }
+  .wide {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
   main section {
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid var(--color-4);
     border-radius: 5px;
-    background-color: lightgrey;
+    background-color: var(--color-3);
   }
   footer ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     list-style-type: none;
+    padding: 0;
   }
   footer ul * {
-    margin-right: 2%;
+    margin: 0 0 2% 2%;
     text-decoration: none;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 768px) {
   body { 
     display: grid;
     grid-template-areas: 
@@ -100,6 +120,12 @@
   nav {
     margin-left: 10px;
   }
+  nav h1 {
+    margin: 10px 0px 10px 0px;
+  }
+  .side {
+    display: block;
+  }
   .chapters{
     display: flex;
     list-style-type: none;
@@ -114,13 +140,17 @@
     text-decoration: none;
   }
   .chapters li:hover{
-    background: blueviolet;
+    background: var(--color-4);
   }
   main {
     display: grid;
-    margin-top: 0;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 10px;  
+  }
+  .wide {
+    grid-column-start: 3;
+    grid-column-end: 5;
+
   }
   main section {
     display: flex;
