@@ -12,8 +12,8 @@
   body { 
     display: grid;
     grid-template-areas: 
-      "nav"
       "header"
+      "nav"
       "main"
       "footer";
     grid-gap: 10px;
@@ -37,30 +37,38 @@
     margin-top: 10px;
   }
   .side {
-    display: flex;
-    justify-content: center;
     list-style-type: none;
   }
   .side li {
-    margin: 0 2% 0 2%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--color-4);
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 0;
+  }
+  .side li:hover{
+    background: var(--color-4);
   }
   .side li a {
     text-decoration: none;
   }
-  .chapters {
+  .nav {
     padding-left: 10px;
     list-style-type: none;
   }
-  .chapters li {
+  .nav li {
+    display: flex;
+    align-items: center;
     margin-right: 2%;
     border: 1px solid var(--color-4);
     border-radius: 5px;
     padding: 10px 30px;
   }
-  .chapters li a{
+  .nav li a{
     text-decoration: none;
   }
-  .chapters li:hover{
+  .nav li:hover{
     background: var(--color-4);
   }
   main {
@@ -84,7 +92,7 @@
     list-style-type: none;
     padding: 0;
   }
-  footer ul * {
+  footer ul li {
     margin: 0 0 2% 2%;
     text-decoration: none;
   }
@@ -125,21 +133,24 @@
   .side {
     display: block;
   }
-  .chapters{
+  .side li {
+    margin: 4%;
+  }
+  .nav{
     display: flex;
     list-style-type: none;
     justify-content: center;
   }
-  .chapters li {
+  .nav li {
     margin-right: 2%;
     border: 1px solid var(--color-5);
     border-radius: 10px;
     padding: 10px 30px;
   }
-  .chapters li a{
+  .nav li a{
     text-decoration: none;
   }
-  .chapters li:hover {
+  .nav li:hover {
     background: var(--color-4);
   }
   main {
