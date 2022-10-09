@@ -1,6 +1,6 @@
 :root {
   --color-1: #cfe796;
-  --color-2: #dc58e51f;
+  --color-2: #0a090a;
   --color-3: #cfdab8;
   --color-4: #a7c59b;
   --color-5: #f4fde6;
@@ -12,6 +12,9 @@ img {
   width: 92%;
   max-height: 96%;
   margin: 4%;
+}
+a {
+  color: var(--color-2);
 }
 @media (min-width: 120px) {
   body { 
@@ -84,7 +87,7 @@ img {
   }
   .wide {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 3;
   }
   main section {
     border: 1px solid var(--color-4);
@@ -166,6 +169,36 @@ img {
   .wide {
     grid-row-start: 1;
     grid-row-end: 3;
+    grid-column-start: auto;
+    grid-column-end: auto;
+
+  }
+  .frst {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start:auto ;
+    grid-column-end: auto;
+
+  }
+  .scnd {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: auto;
+    grid-column-end: auto;
+
+  }
+  .thrd {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: auto;
+    grid-column-end: auto;
+
+  }
+  .f {
+    grid-row-start: auto;
+    grid-row-end: auto;
+    grid-column-start: auto;
+    grid-column-end: auto;
 
   }
   main section {
