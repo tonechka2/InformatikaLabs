@@ -1,6 +1,6 @@
 var ctx = document.getElementById('1').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
         labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
         datasets: [{
@@ -48,7 +48,7 @@ var myChart = new Chart(ctx, {
 
 var ctx = document.getElementById('2').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'polarArea',
     data: {
         labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
         datasets: [{
@@ -96,7 +96,7 @@ var myChart = new Chart(ctx, {
 
 var ctx = document.getElementById('3').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
         datasets: [{
@@ -144,7 +144,7 @@ var myChart = new Chart(ctx, {
 
 var ctx = document.getElementById('4').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'radar',
     data: {
         labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
         datasets: [{
