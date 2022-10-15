@@ -1,10 +1,10 @@
 body {
     display: grid;
     grid-template-areas:
-      'header content'
-      'menu footer';
-    grid-template-columns: 50vw 50vw;
-    grid-template-rows: 50vh 50vh;
+      'header header content'
+      'menu footer footer';
+    grid-template-columns: 30vw auto 40vw;
+    grid-template-rows: 60vh 40vh;
   }
   
   header {

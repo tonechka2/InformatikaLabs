@@ -1,31 +1,35 @@
+var data_bar = [];
+    data_bar.data = [84.308, 84.188, 84.118, 83.706, 83.5, 83.468];
+    data_bar.labels = ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'];
+var data_radar = [];
+    data_radar.data = [84.308, 84.188, 84.118, 83.706, 83.5, 83.468];
+    data_radar.labels = ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'];
+var data_bublik = [];
+    data_bublik.data = [84.308, 84.188, 84.118, 83.706, 83.5, 83.468];
+    data_bublik.labels = ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'];
+var data_polar = [];
+    data_polar.data = [84.308, 84.188, 84.118, 83.706, 83.5, 83.468];
+    data_polar.labels = ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'];
+var backgroundColor = ['rgba(216, 27, 96, 0.6)','rgba(3, 169, 244, 0.6)','rgba(255, 152, 0, 0.6)','rgba(29, 233, 182, 0.6)','rgba(156, 39, 176, 0.6)','rgba(84, 110, 122, 0.6)'];
+var borderColor = ['rgba(216, 27, 96, 1)','rgba(3, 169, 244, 1)','rgba(255, 152, 0, 1)','rgba(29, 233, 182, 1)','rgba(156, 39, 176, 1)','rgba(84, 110, 122, 1)'];
+
+
 var ctx = document.getElementById('1').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'bar',
     data: {
-        labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
+        labels: data_bar.labels,
         datasets: [{
-            label: 'Life expectancy',
-            data: [84.308, 84.188, 84.118, 83.706, 83.5, 83.468],
-            backgroundColor: [
-                'rgba(216, 27, 96, 0.6)',
-                'rgba(3, 169, 244, 0.6)',
-                'rgba(255, 152, 0, 0.6)',
-                'rgba(29, 233, 182, 0.6)',
-                'rgba(156, 39, 176, 0.6)',
-                'rgba(84, 110, 122, 0.6)'
-            ],
-            borderColor: [
-                'rgba(216, 27, 96, 1)',
-                'rgba(3, 169, 244, 1)',
-                'rgba(255, 152, 0, 1)',
-                'rgba(29, 233, 182, 1)',
-                'rgba(156, 39, 176, 1)',
-                'rgba(84, 110, 122, 1)'
-            ],
+            labels: 'Life expectancy',
+            data: data_bar.data,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
             borderWidth: 1
         }]
     },
     options: {
+        maintainAspectRatio: false,
+        responsive: true,
         legend: {
             display: false
         },
@@ -48,32 +52,20 @@ var myChart = new Chart(ctx, {
 
 var ctx = document.getElementById('2').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'polarArea',
+    type: 'radar',
     data: {
-        labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
+        labels: data_radar.labels,
         datasets: [{
             label: 'Life expectancy',
-            data: [84.308, 84.188, 84.118, 83.706, 83.5, 83.468],
-            backgroundColor: [
-                'rgba(216, 27, 96, 0.6)',
-                'rgba(3, 169, 244, 0.6)',
-                'rgba(255, 152, 0, 0.6)',
-                'rgba(29, 233, 182, 0.6)',
-                'rgba(156, 39, 176, 0.6)',
-                'rgba(84, 110, 122, 0.6)'
-            ],
-            borderColor: [
-                'rgba(216, 27, 96, 1)',
-                'rgba(3, 169, 244, 1)',
-                'rgba(255, 152, 0, 1)',
-                'rgba(29, 233, 182, 1)',
-                'rgba(156, 39, 176, 1)',
-                'rgba(84, 110, 122, 1)'
-            ],
+            data: data_radar.data,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
             borderWidth: 1
         }]
     },
     options: {
+        maintainAspectRatio: false,
+        responsive: true,
         legend: {
             display: false
         },
@@ -84,44 +76,25 @@ var myChart = new Chart(ctx, {
             fontSize: 16,
             padding: 20
         },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    min: 75
-                }
-            }]
-        }
     }
 });
 
 var ctx = document.getElementById('3').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
-        labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
+        labels: data_bublik.labels,
         datasets: [{
             label: 'Life expectancy',
-            data: [84.308, 84.188, 84.118, 83.706, 83.5, 83.468],
-            backgroundColor: [
-                'rgba(216, 27, 96, 0.6)',
-                'rgba(3, 169, 244, 0.6)',
-                'rgba(255, 152, 0, 0.6)',
-                'rgba(29, 233, 182, 0.6)',
-                'rgba(156, 39, 176, 0.6)',
-                'rgba(84, 110, 122, 0.6)'
-            ],
-            borderColor: [
-                'rgba(216, 27, 96, 1)',
-                'rgba(3, 169, 244, 1)',
-                'rgba(255, 152, 0, 1)',
-                'rgba(29, 233, 182, 1)',
-                'rgba(156, 39, 176, 1)',
-                'rgba(84, 110, 122, 1)'
-            ],
+            data: data_bublik.data,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
             borderWidth: 1
         }]
     },
     options: {
+        maintainAspectRatio: false,
+        responsive: true,
         legend: {
             display: false
         },
@@ -132,44 +105,25 @@ var myChart = new Chart(ctx, {
             fontSize: 16,
             padding: 20
         },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    min: 75
-                }
-            }]
-        }
     }
 });
 
 var ctx = document.getElementById('4').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'radar',
+    type: 'polarArea',
     data: {
-        labels: ['Hong Kong', 'Macau', 'Japan', 'Switzerland', 'Spain', 'Singapore'],
+        labels: data_polar.labels,
         datasets: [{
             label: 'Life expectancy',
-            data: [84.308, 84.188, 84.118, 83.706, 83.5, 83.468],
-            backgroundColor: [
-                'rgba(216, 27, 96, 0.6)',
-                'rgba(3, 169, 244, 0.6)',
-                'rgba(255, 152, 0, 0.6)',
-                'rgba(29, 233, 182, 0.6)',
-                'rgba(156, 39, 176, 0.6)',
-                'rgba(84, 110, 122, 0.6)'
-            ],
-            borderColor: [
-                'rgba(216, 27, 96, 1)',
-                'rgba(3, 169, 244, 1)',
-                'rgba(255, 152, 0, 1)',
-                'rgba(29, 233, 182, 1)',
-                'rgba(156, 39, 176, 1)',
-                'rgba(84, 110, 122, 1)'
-            ],
+            data: data_polar.data,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
             borderWidth: 1
         }]
     },
     options: {
+        maintainAspectRatio: false,
+        responsive: true,
         legend: {
             display: false
         },
@@ -180,12 +134,5 @@ var myChart = new Chart(ctx, {
             fontSize: 16,
             padding: 20
         },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    min: 75
-                }
-            }]
-        }
     }
 });
