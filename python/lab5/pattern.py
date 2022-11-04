@@ -1,27 +1,26 @@
 from peewee import *
-db = SqliteDatabase('python\\lab5\\database.db') #Подключение БД
-#Базовый класс BaseModel наследуется от стандартного класса Model в модуле peewee
+db = SqliteDatabase('python\\lab5\\database.db')
+
 class BaseModel(Model):
-    id = PrimaryKeyField(unique=True) #Установка уникального первичного ключа
+    id = PrimaryKeyField(unique=True)
 
- #Мета класс — это класс внутри класса
     class Meta:
-        database = db #Отсылка на БД, с которой работает модель
-        order_by = 'id' #Значение полей, по которым данные сортируются по умолчанию
-# Шаблон для первой таблицы
+        database = db
+        order_by = 'id'
+
 class Vehicle(BaseModel):
-#Атрибут (имя колонки) = тип данных
-    name = CharField() #Символьное поле (текст)
+    name = CharField()
+    type = CharField()
+    amount = FloatField()
 
     class Meta:
-        db_table = 'vehicles' #Имя создаваемой таблицы №1
+        db_table = 'vehicles'
 
-#Шаблон для второй таблицы
+
 class Price(BaseModel):
-#Атрибут (имя колонки) = тип данных
-    amount = FloatField() #Вещественные(дробные) числа
-    payment_date = DateField() #Дата
-    expense_id = ForeignKeyField(Vehicle) #Внешний первичный ключ
+    amount = FloatField()
+    payment_date = DateField()
+    expense_id = ForeignKeyField(Vehicle)
     
     class Meta:
-        db_table = 'prices' #Имя создаваемой таблицы №2
+        db_table = 'prices'
