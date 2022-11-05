@@ -8,47 +8,40 @@ class BaseModel(Model):
         database = db
         order_by = 'id'
 
-class Vehicle(BaseModel):
-    name = CharField(null = True)
-    type = CharField(null = True)
-    amount = FloatField()
-    number = CharField(null = True)
-    elephant = CharField(null = True)
-    banana = CharField(null = True)
+class Ingredient(BaseModel):
+    proteins = DateField(null = True)
+    fats = CharField(null = True)
+    carbohydrates = CharField(null = True)
+    hydration = IntegerField(null = True)
+    class Meta:
+        db_table = 'ingredients'
+
+class Region(BaseModel):
+    temp = FloatField(null = True)
+    wind = CharField(null = True)
+    numer = IntegerField(null = True)
+    word = CharField(null = True)
 
     class Meta:
-        db_table = 'vehicles'
+        db_table = 'region'
 
+class Data(BaseModel):
+    count = IntegerField(null = True)
+    people = IntegerField(null = True)
+    animal = IntegerField(null = True)
 
-class Price(BaseModel):
-    amount = FloatField()
-    payment_date = DateField(null = True)
-    bitter = CharField(null = True)
-    coffee = CharField(null = True)
-    apple = CharField(null = True)
-    expense_id = ForeignKeyField(Vehicle, null = True)
-    
     class Meta:
-        db_table = 'prices'
+        db_table = 'data'
 
-class Underground(BaseModel):
-    amount = FloatField()
-    payment_date = DateField(null = True)
-    bitter = CharField(null = True)
-    coffee = CharField(null = True)
-    apple = CharField(null = True)
-    expense_id = ForeignKeyField(Vehicle, null = True)
-    
-    class Meta:
-        db_table = 'underground'
+class Product(BaseModel):
+    data = DateField(null = True)
+    region = CharField(null = True)
+    product = CharField(null = True)
+    amount = IntegerField(null = True)
+    cost = FloatField(null = True)
+    iprdt = ForeignKeyField(Ingredient, null = True)
+    idata = ForeignKeyField(Region, null = True)
+    iregion = ForeignKeyField(Data, null = True)
 
-class Aqua(BaseModel):
-    amount = FloatField()
-    payment_date = DateField(null = True)
-    bitter = CharField(null = True)
-    coffee = CharField(null = True)
-    apple = CharField(null = True)
-    expense_id = ForeignKeyField(Vehicle, null = True)
-    
     class Meta:
-        db_table = 'aqua'
+        db_table = 'product'

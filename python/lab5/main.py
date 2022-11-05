@@ -3,24 +3,32 @@ from pattern import *
 i = 0
 
 with db:
-    Vehicle.delete().execute() #clear table (NOT IF EXIST)
-    Price.delete().execute()
-    Underground.delete().execute()
-    Aqua.delete().execute()
+    Product.delete().execute() #clear table (NOT IF EXIST)
+    Ingredient.delete().execute()
+    Region.delete().execute()
+    Data.delete().execute()
 
-    db.create_tables([Vehicle, Price, Underground, Aqua])
+    db.create_tables([Product, Ingredient, Region, Data])
 
-    Vehicle.insert([{'name': 'qaswed', 'type': 'ergwg', 'amount': 0}, #input manual
-                    {'name': '4-yhnbgt', 'type': 'sdgha', 'amount': 1}]).execute()
+    Ingredient.insert([{'proteins': 0, 'fats': 0, 'carbohydrates': 0, 'hydration': 0},
+                        {'proteins': 0, 'fats': 0, 'carbohydrates': 0, 'hydration': 0},
+                        {'proteins': 0, 'fats': 0, 'carbohydrates': 0, 'hydration': 0},
+                        {'proteins': 0, 'fats': 0, 'carbohydrates': 0, 'hydration': 0}]).execute()
 
-    while i < 5: #input auto
-        i += 1
-        Vehicle.create(name = 'vzuh' * i, type = 'vzuh', amount = i)
-        Underground.create(name = 'vzuh' * i, type = 'vzuh', amount = i)
-        Aqua.create(name = 'vzuh' * i, type = 'vzuh', amount = i)
+    Region.insert([{'temp': 'north', 'wind': 'up', 'numer': 0, 'word': 'fxgjh',},
+                    {'temp': 'south', 'wind': 'down', 'numer': 1, 'word': 'sghsfg',},
+                    {'temp': 'west', 'wind': 'left', 'numer': 0, 'word': 'dh',},
+                    {'temp': 'east', 'wind': 'right', 'numer': 1, 'word': 'adgn',}]).execute()
 
-    Price.insert([{'amount': 0, 'payment_date': datetime.date(2022,10,25), 'expense_id': 1}, #input manual
-                  {'amount': 100, 'payment_date': datetime.date(2022,10,25), 'expense_id': 2}]).execute()
+    Data.insert([{'count': 0},
+                 {'count': 1},
+                 {'count': 2},
+                 {'count': 3}]).execute()
+                 
+    Product.insert([{'product': 'chocolate', 'data': datetime.date(2022,10,25), 'region': 'north', 'amount': 0, 'cost': 0, 'iprdt': Ingredient.id[0], 'idata': Data.id[0], 'iregion': Region.id[0]},
+                    {'product': 'banana', 'data': datetime.date(2022,10,26), 'region': 'south', 'amount': 0, 'cost': 0   , 'iprdt': Ingredient.id[1], 'idata': Data.id[1], 'iregion': Region.id[1]},
+                    {'product': 'apple', 'data': datetime.date(2022,10,27), 'region': 'west', 'amount': 0, 'cost': 0     , 'iprdt': Ingredient.id[2], 'idata': Data.id[2], 'iregion': Region.id[2]},
+                    {'product': 'corn', 'data': datetime.date(2022,10,28), 'region': 'east', 'amount': 1, 'cost': 0      , 'iprdt': Ingredient.id[3], 'idata': Data.id[3], 'iregion': Region.id[3]}]).execute()
 
-    for Vehicle in Vehicle.select().where((Vehicle.id < 3) | (Vehicle.id > 5)): #output
-        print(Vehicle.id, Vehicle.name) 
+    for Product in Product.select().where((Product.id < 2) | (Product.id > 3)): #output
+        print(Product.id, Product.product)
