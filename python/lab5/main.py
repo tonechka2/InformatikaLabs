@@ -1,6 +1,5 @@
 import datetime
 from pattern import *
-i = 0
 
 with db:
     Product.delete().execute() #clear table (NOT IF EXIST)
@@ -24,11 +23,11 @@ with db:
                  {'count': 1},
                  {'count': 2},
                  {'count': 3}]).execute()
-                 
-    Product.insert([{'product': 'chocolate', 'data': datetime.date(2022,10,25), 'region': 'north', 'amount': 0, 'cost': 0, 'iprdt': Ingredient.id[0], 'idata': Data.id[0], 'iregion': Region.id[0]},
-                    {'product': 'banana', 'data': datetime.date(2022,10,26), 'region': 'south', 'amount': 0, 'cost': 0   , 'iprdt': Ingredient.id[1], 'idata': Data.id[1], 'iregion': Region.id[1]},
-                    {'product': 'apple', 'data': datetime.date(2022,10,27), 'region': 'west', 'amount': 0, 'cost': 0     , 'iprdt': Ingredient.id[2], 'idata': Data.id[2], 'iregion': Region.id[2]},
-                    {'product': 'corn', 'data': datetime.date(2022,10,28), 'region': 'east', 'amount': 1, 'cost': 0      , 'iprdt': Ingredient.id[3], 'idata': Data.id[3], 'iregion': Region.id[3]}]).execute()
+
+    Product.insert([{'product': 'chocolate', 'data': datetime.date(2022,10,25), 'region': 'north', 'amount': 0, 'cost': 0, 'iprdt': (Ingredient.select())[0].id, 'idata': (Data.select())[0].id, 'iregion': (Region.select())[0].id},
+                    {'product': 'banana', 'data': datetime.date(2022,10,26), 'region': 'south', 'amount': 0, 'cost': 0   , 'iprdt': (Ingredient.select())[1].id, 'idata': (Data.select())[1].id, 'iregion': (Region.select())[1].id},
+                    {'product': 'apple', 'data': datetime.date(2022,10,27), 'region': 'west', 'amount': 0, 'cost': 0     , 'iprdt': (Ingredient.select())[2].id, 'idata': (Data.select())[2].id, 'iregion': (Region.select())[2].id},
+                    {'product': 'corn', 'data': datetime.date(2022,10,28), 'region': 'east', 'amount': 1, 'cost': 0      , 'iprdt': (Ingredient.select())[3].id, 'idata': (Data.select())[3].id, 'iregion': (Region.select())[3].id}]).execute()
 
     for Product in Product.select().where((Product.id < 2) | (Product.id > 3)): #output
         print(Product.id, Product.product)
