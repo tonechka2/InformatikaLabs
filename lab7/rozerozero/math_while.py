@@ -4,10 +4,11 @@ def math_func():
     var = []
     p_eq = []
     def import_var():
-        for i in range(6):
-            #var.append(int(input()))
-            var.append(random.randint(-100,100))
-        return var
+        if len(var) == 0:
+            for i in range(6):  
+                var.append(int(input()))
+                #var.append(random.randint(-100,100))
+        return var 
 
     def calculation():
         f_eq_1 = 0
