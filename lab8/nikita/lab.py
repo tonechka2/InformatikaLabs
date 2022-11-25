@@ -61,13 +61,13 @@ def main():
         print(f)
  
  
-    if var == "один":
+    if var == 1:
         return first()
-    elif var == "два":
+    elif var == 2:
         return second()
-    elif var == "три":
+    elif var == 3:
         return third()
-    elif var == "четыре":
+    elif var == 4:
         return fourth()
  
 main()
