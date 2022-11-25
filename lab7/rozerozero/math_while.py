@@ -16,7 +16,7 @@ def math_func():
         f_eq_1_1 = (((import_var()[1] + import_var()[2])**2 + 1.08 * 10**3)**1/2) - import_var()[3]
         f_eq_1_2 = (((import_var()[4] + import_var()[2])**2 + 1.08 * 10**3)**1/2) - import_var()[3]
         f_eq_1_3 = (((import_var()[5] + import_var()[2])**2 + 1.08 * 10**3)**1/2) - import_var()[3]
-        while temp < 51:
+        while temp < 50:
             temp += 5
             if temp <= 11.4: f_eq_1 = f_eq_1_1
             elif ((temp > 11.4) or (temp <= 37.8)) : f_eq_1 = f_eq_1_2
@@ -27,5 +27,4 @@ def math_func():
         return p_eq 
     import_var()
     calculation()
-    print(p_eq)
 math_func()
