@@ -1,7 +1,7 @@
 from random import randint
 import numpy as np
 row, col = 3, 3
-a = [[randint(-5, 5) for j in range(col)] for i in range(row)]
+a = [[randint(-5, 5) for _ in range(col)] for _ in range(row)]
 sum = 0
 min = []
 for i in range(row):
