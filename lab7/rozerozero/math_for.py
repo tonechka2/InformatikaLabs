@@ -6,8 +6,8 @@ def math_func():
     def import_var():
         if len(var) == 0:
             for i in range(6):  
-                var.append(int(input()))
-                #var.append(random.randint(-100,100))
+                # var.append(int(input()))
+                var.append(random.randint(-100,100))
         return var 
 
     def calculation():
